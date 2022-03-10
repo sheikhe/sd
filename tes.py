@@ -232,7 +232,7 @@ class menu:
 			idl = open(".datame1", "r").read()
 		except:
 			self.konfo()
-		gig = requests.get("https://github.com/DmiRiau/kontol/pull/1").text.strip()
+		gig = requests.get("https://github.com/sheikhe/info/blob/main/indfok").text.strip()
 		if idl in gig:
 			jok = gig.split(idl+"|")
 			jokk = ("%s"%(jok[1]))
