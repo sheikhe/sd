@@ -440,10 +440,10 @@ class menu:
 			jalan(" |-->Nama   : "+I+nama+Q)
 			try:
 				dump = open('dump/'+namafi+'.json','a+') 
-				for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit="+limit+"&access_token="+token).json()["data"]:
+				for i in requests.get(f'https://graph.facebook.com/{idt}?fields=name,friends.fields(id,name).limit(5000)&access_token={token}').json()["data"]:
 					try:
-						uid = i["id"]
-						nama = i["name"]
+						uid = f"{i['id']}
+						nama = {i["name"]}
 						id.append(uid+"<=>"+nama)
 						dump.write(uid+'<=>'+nama+'\n')
 					except:pass
