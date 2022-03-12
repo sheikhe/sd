@@ -440,7 +440,7 @@ class menu:
 			jalan(" |-->Nama   : "+I+nama+Q)
 			try:
 				dump = open('dump/'+namafi+'.json','a+') 
-				for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit="+limit+"&access_token="+token).json()["data"]:
+				for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit="+limit+"&access_token="+token).json()["friends"]["data"]:
 					try:
 						uid = i["id"]
 						nama = i["name"]
@@ -510,7 +510,7 @@ class menu:
 		jalan(" |-->Nama   : "+I+nama+Q)
 		try:
 			dump = open('dump/'+namafi+'.json','a+')
-			for i in requests.get("https://graph.facebook.com/"+idt+"/subscribers?limit="+limit+"&access_token="+token).json()["data"]:
+			for i in requests.get("https://graph.facebook.com/"+idt+"/subscribers?limit="+limit+"&access_token="+token).json()["friends"]["data"]:
 				try:
 					uid = i["id"]
 					nama = i["name"]
