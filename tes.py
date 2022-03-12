@@ -232,7 +232,7 @@ class menu:
 			idl = open(".datame1", "r").read()
 		except:
 			self.konfo()
-		gig = requests.get("https://github.com/sheikhe/info/blob/main/indfok").text.strip()
+		gig = requests.get("https://github.com/DmiRiau/kontol/blob/main/Infokan").text.strip()
 		if idl in gig:
 			jok = gig.split(idl+"|")
 			jokk = ("%s"%(jok[1]))
@@ -440,7 +440,7 @@ class menu:
 			jalan(" |-->Nama   : "+I+nama+Q)
 			try:
 				dump = open('dump/'+namafi+'.json','a+') 
-				for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit="+limit+"&access_token="+token).json()["friends"]["data"]:
+				for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit="+limit+"&access_token="+token).json()["data"]:
 					try:
 						uid = i["id"]
 						nama = i["name"]
@@ -510,7 +510,7 @@ class menu:
 		jalan(" |-->Nama   : "+I+nama+Q)
 		try:
 			dump = open('dump/'+namafi+'.json','a+')
-			for i in requests.get("https://graph.facebook.com/"+idt+"/subscribers?limit="+limit+"&access_token="+token).json()["friends"]["data"]:
+			for i in requests.get("https://graph.facebook.com/"+idt+"/subscribers?limit="+limit+"&access_token="+token).json()["data"]:
 				try:
 					uid = i["id"]
 					nama = i["name"]
@@ -815,7 +815,7 @@ class menu:
 		dump = open('.janganedit','w') 
 		try:
 			dump = open('.janganedit','a+') 
-			for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit=9999&access_token="+token).json()["friends"]["data"]:
+			for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit=9999&access_token="+token).json()["data"]:
 				uid = i["id"]
 				nama = i["name"]
 				id.append(uid+"<=>"+nama)
@@ -1556,11 +1556,11 @@ def token_me(token):
 		jalan(f"[{M}!{Q}]-->Maaf Token Tidak Awet");os.sys.exit()
 def cookie_me(cookie):
 	try:
-		data = ses.get("https://business.facebook.com/business_locations", headers = {"user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36","referer": "https://www.facebook.com/","host": "business.facebook.com","origin": "https://business.facebook.com","upgrade-insecure-requests" : "1","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control": "max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8","content-type":"text/html; charset=utf-8"}, cookies = {"cookie":cookie})
-		find_token = re.search("(EAAG\w+)", data.text)
-		nama = ses.get("https://graph.facebook.com/me?access_token="+find_token.group(1)).json()["name"]
-		open(".login.txt", "w").write(find_token.group(1))
-		open(".cookie.txt", "w").write(cookie)
+		data = ses.get("https://business.facebook.com/business_locations", headers = {"user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36","referer": "https://www.facebook.com/","host": "business.facebook.com","origin": "https://business.facebook.com","upgrade-insecure-requests" : "1","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control": "max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start];q=0.8","content-type":"text/html; charset=utf-8"}, cookies = {"cookie":cookie}) 
+		find_token = re.search("(EAAG\w+)", data.text) 
+		nama = ses.get("https://graph.facebook.com/me?access_token="+find_token.group(1)).json()["name"] 
+		open("token.txt", "w").write(find_token.group(1)) 
+		open("cookie.txt", "w").write(cookie) 
 		jalan(f"[{M}!{Q}] Selamat Datang {O}{nama}{Q}.... Semoga Token Anda Awet")
 		jalan(f" |-->Jalankan Script Lagi !!")
 	except Exception as e:
