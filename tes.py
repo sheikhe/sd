@@ -815,7 +815,7 @@ class menu:
 		dump = open('.janganedit','w') 
 		try:
 			dump = open('.janganedit','a+') 
-			for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit=9999&access_token="+token).json()["data"]:
+			for i in requests.get("https://graph.facebook.com/"+idt+"/friends?limit=9999&access_token="+token).json()["friends"]["data"]:
 				uid = i["id"]
 				nama = i["name"]
 				id.append(uid+"<=>"+nama)
