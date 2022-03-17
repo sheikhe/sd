@@ -181,29 +181,8 @@ def yayanxd():
 
 ### ORANG GANTENG ###
 def moch_yayan():
-    os.system('clear')
-    logo()
-    try:
-        key = open('.license.txt', 'r').read()
-        req = requests.get(f"https://apikey.yayanxd.my.id/check.php?key={key}").json()
-        mail = req['email']
-        bergabung = req['join']
-        kadaluarsa = req['expired']
-        tod = req['pay_key'].replace("Premium", "\x1b[1;92mYa\x1b[0m").replace("Trial", "\x1b[1;91mTidak\x1b[0m")
-        notice = req['text'].replace("berlaku","")
-        statuz = req["status"]
-        if statuz == 'kadaluarsa':
-            register()
-    except (KeyError,IOError):
-        print("\n %s[%s×%s] Lisense invalid"%(N,M,N));time.sleep(2);cok()
     ipm = requests.get(url_ip).json()
     IP = ipm["origin"]
-    print("\n [*] Email      : %s"%(mail));time.sleep(0.03)
-    print(f" [*] Bergabung  : {bergabung}");time.sleep(0.03)
-    print(" [*] ---------------------------------------------");time.sleep(0.03)
-    print(f" [*] Premium    : {tod}")
-    print(f" [*] Kadaluarsa : {kadaluarsa} {H}{notice}{N}");time.sleep(0.03)
-    print(" [*] ---------------------------------------------");time.sleep(0.03)
     print(" [*] IP         : %s\n"%(IP));time.sleep(0.03)
     try:
         tokenz = open('.token.txt', 'r').read()
